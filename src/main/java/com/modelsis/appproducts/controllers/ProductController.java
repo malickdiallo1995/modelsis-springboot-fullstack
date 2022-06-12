@@ -47,8 +47,13 @@ public class ProductController {
         return ResponseEntity.ok().body(product);
     }
 
-    @PutMapping
-    public ResponseEntity<Product> update(@RequestBody @Validated Product product){
+    @PutMapping("/{typeId}")
+    public ResponseEntity<Product> update(@RequestBody  Product product,@PathVariable(value = "typeId") Long typeId){
+        log.info("producttypeId : {}",typeId);
+        log.info("product : {}",product);
+        Type type = productTypeService.findTypeById(typeId);
+        log.info("productType find by id resutl : {}", type);
+        product.setType(type);
         product = productService.update(product);
         return ResponseEntity.ok().body(product);
     }
@@ -60,4 +65,6 @@ public class ProductController {
         return ResponseEntity.ok().body(product);
 
     }
+
+
 }
