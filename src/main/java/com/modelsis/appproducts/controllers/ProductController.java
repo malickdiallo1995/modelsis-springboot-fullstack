@@ -14,9 +14,11 @@ import java.util.List;
 @Log4j2
 @RestController
 @RequestMapping("/api/v1/products")
+@CrossOrigin(origins = "*",allowedHeaders = "*", maxAge = 3600)
 public class ProductController {
     /**
-     * Using dependencie Injection
+     * Using
+     * dependencie Injection
      */
     private IProductService productService;
     private IProductTypeService productTypeService;
@@ -26,6 +28,7 @@ public class ProductController {
         this.productTypeService = productTypeService;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> listAllProducts =  this.productService.listAllProducts();
