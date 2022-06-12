@@ -52,4 +52,12 @@ public class ProductController {
         product = productService.update(product);
         return ResponseEntity.ok().body(product);
     }
+
+    @GetMapping("/{typeId}")
+    public ResponseEntity<Product> getProductById(@PathVariable(value = "typeId") Long id ) throws Exception {
+        Product product = new Product();
+        product = productService.getProductById(id);
+        return ResponseEntity.ok().body(product);
+
+    }
 }
