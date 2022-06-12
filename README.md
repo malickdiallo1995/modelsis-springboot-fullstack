@@ -6,7 +6,7 @@ Il s'agit ici d'une application Springboot de gestion de Produit qui permet de f
 * Creer un Produit en lui associant un Type de produit
 * Modifier un Produit
 * Lister les produits 
-## 2- Stack utilisé : 
+## 2- Stack utilisée : 
 * Springboot : 2.7.0
 * Java : 1.8
 * Spring data JPA
